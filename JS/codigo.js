@@ -1,6 +1,17 @@
+//Clase 1
+
+/* let nombre = prompt(`Ingrese su nombre`);
+let apellido = prompt(`Ingrese su apellido`);
+let numero = parseInt(prompt(`Primer número para multiplicar`));
+let numero2 = parseInt(prompt(`Segundo numero para multiplicar`));
+
+console.log(`Hola ` + nombre + `. Como estas?`);
+console.log(`Su nombre completo es ` + nombre + ` ` + apellido + `?`);
+console.log(numero + `x` + numero2 + `=` + numero*numero2); */
+
 //Clase 2
 
-let nombre = prompt(`Dime su nombre`);
+/* let nombre = prompt(`Dime su nombre`);
 let edad = parseInt(prompt(`Ingrese su edad`));
 let saludo = prompt(`Dime un saludo`);
 saludo = saludo.toLowerCase();
@@ -27,28 +38,33 @@ if (dinero < 200){
     console.log(`usted podrá comprar una bebida más un bocadito`);
 }else{
     console.log(`usted podrá comprar lo que quiera`);
-};
-
+}; */
 
 //Clase 3
 
-/* for(let rep = 1; rep <= 10; rep++){
-    console.log(rep);
+let repeticion =parseInt(prompt(`ingrese un número`));
+
+for(let i = 1; i <= repeticion; i++){
+    console.log(i + ` repetición`);
 };
 
-let numero = parseInt(prompt(`Ingrese un número`));
+
+let numero = parseInt(prompt(`Ingrese otro número`));
 
 for(let i = 1; i <= 10; i++){
-    console.log(numero + `x` + i + `=` + numero*i);
+    console.log(numero + ` x ` + i + ` = ` + numero*i);
 };
 
-let repetir = false;
 
-do{
-console.log("¡Solo una vez!");
-}while(repetir);
+let nombre = prompt(`Ingrese un nombre`);
 
+while (nombre != `ESC`){
+    console.log(`hola ` + nombre);
+    nombre = prompt(`Ingrese otro nombre`);
+  };
 
-for(let i = 0; i <= 10; i++){
-    console.log(i);
-}; */
+  let dato = parseInt(prompt(`Ingrese un número`));
+
+  for(let i = 1; i <= dato; i++){
+      console.log(`Hola ` + i);
+  };
