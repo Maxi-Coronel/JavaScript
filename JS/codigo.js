@@ -9,6 +9,8 @@ console.log(`Hola ` + nombre + `. Como estas?`);
 console.log(`Su nombre completo es ` + nombre + ` ` + apellido + `?`);
 console.log(numero + `x` + numero2 + `=` + numero*numero2); */
 
+
+
 //Clase 2
 
 /* let nombre = prompt(`Dime su nombre`);
@@ -40,14 +42,19 @@ if (dinero < 200){
     console.log(`usted podrá comprar lo que quiera`);
 }; */
 
+
+
 //Clase 3
 
-let repeticion =parseInt(prompt(`ingrese un número`));
+/* let repeticion =parseInt(prompt(`ingrese un número`));
 
 for(let i = 1; i <= repeticion; i++){
     console.log(i + ` repetición`);
 };
 
+for( let i=1 ; i <= 30 ; i = i + 2 ){
+    console.log(i);
+}
 
 let numero = parseInt(prompt(`Ingrese otro número`));
 
@@ -67,4 +74,6 @@ while (nombre != `ESC`){
 
   for(let i = 1; i <= dato; i++){
       console.log(`Hola ` + i);
-  };
+  }; */
+
+
