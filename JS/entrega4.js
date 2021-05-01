@@ -1,68 +1,4 @@
-/*   function saludar(){
-      let nombre = prompt(`ingresar nombre`);
-      alert(`Tu nombre es ` + nombre);
-  }
-
-  saludar();
-  saludar();
-  saludar(); */
-
-/* let resultado = 0;
-
-function sumar(primerNumero, segundoNumero){
-    resultado = primerNumero + segundoNumero;
-}
-
-function mostrar(mensaje){
-    console.log(mensaje);
-}
-
-sumar(parseInt(prompt(`ingrese numero`)), parseInt(prompt(`otro numero`)));
-mostrar(resultado);
-
- */
-
-/* function sumarlo(primerNumero, segundoNumero){
-    return primerNumero + segundoNumero;
-}
-
-let resultado = sumarlo(parseInt(prompt(`Primer numero`)), parseInt(prompt(`Segundo numero`)));
-console.log(resultado);
- */
-
-/* function calculadora(primerNumero, operacion, segundoNumero){
-    switch(operacion){
-        case "+":
-            return primerNumero + segundoNumero;
-            break;
-        case "-":
-            return primerNumero - segundoNumero;
-            break;
-        case "*":
-            return primerNumero * segundoNumero;
-            break;
-        case "/":
-            return primerNumero / segundoNumero;
-            break;
-        default:
-            return 0;
-            break;
-    }
-}
-console.log(calculadora(parseInt(prompt(`ingrese un número`)), prompt(`ingrese una operación`), parseInt(prompt(`ingrese otro número`)))); */
-
-/* const suma = (a,b) => a + b;
-const resta = (a,b) => a - b;
-const iva = x => x * .21;
-
-let precio = 500;
-let descuento = 50;
-
-let nuevoPrecio = resta(suma(precio, iva(precio)),descuento);
-
-console.log(nuevoPrecio); */
-
-    //ejercicio
+//ejercicio
 
 //const
 const iva = x => x * .21;
@@ -73,7 +9,7 @@ const precioKm = 65;
 
 let pedido;
 let precioSillon;
-let metroTela
+let metroTela;
 
 function ingresoPedido() {
     for (pedido = prompt(`que modulacion de sillon quiere? 1cp, 2cp o rinconero`); pedido != `1cp` && pedido != `2cp` && pedido != `rinconero`; ) {
@@ -118,7 +54,9 @@ function eleccionEnvio() {
     if (envio == `retiro`) {
         precioEnvio = 0;
     }else {
-        distancia = parseInt(prompt(`indique la distancia de envio en Km`));
+        for (distancia = parseInt(prompt(`Ingrese la distancia del envio en Km`)); isNaN(distancia); ) {
+            distancia = parseInt(prompt(`Sus datos deben ser solo numéricos para ingresar la distancia`));
+        }
         precioEnvio = multiplicar(distancia,precioKm);
     }
 }
@@ -131,6 +69,7 @@ let precioTotal = suma(precioSillon,multiplicar(precioTela,metroTela));
 
 console.log(`Su elección fue ${pedido}, con la calidad ${grupoTela} de tela`);
 console.log(`El precio de su sillon es ${precioTotal} mas IVA`);
+
 if (precioEnvio == 0) {
     console.log(`El precio de su factura es ${suma(precioTotal,iva(precioTotal))}`);
 } else {
