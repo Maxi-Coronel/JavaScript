@@ -62,110 +62,78 @@ let nuevoPrecio = resta(suma(precio, iva(precio)),descuento);
 
 console.log(nuevoPrecio); */
 
+    //ejercicio
+
 //const
 const iva = x => x * .21;
 const multiplicar = (a,b) => a * b;
 const suma = (a,b) => a + b;
 const resta = (a,b) => a - b;
+const precioKm = 65;
 
-//let
-
-let modulacion = prompt(`elija que sillon quiere 1cp, 3cp o rinconero`);
-
-if (modulacion != '1cp' && modulacion != '3cp' && modulacion != 'rinconero') {
-    alert(`el valor ingresado no es correcto`);
-    modulacion = prompt(`vuelva a elegir 1cp, 3cp o rinconero`);
-}else {
-    modulacion = modulacion;
-}
-
-let metroTela;
+let pedido;
 let precioSillon;
-let grupoTela = prompt(`elija el grupo de grupoTela 1, 2 o 3`);
+let metroTela
+
+function ingresoPedido() {
+    for (pedido = prompt(`que modulacion de sillon quiere? 1cp, 2cp o rinconero`); pedido != `1cp` && pedido != `2cp` && pedido != `rinconero`; ) {
+        pedido = prompt(`su dato fue incorrecto, que modulacion quiere? 1cp, 2cp o rinconero`); 
+    }
+    if (pedido == `1cp`) {
+        precioSillon = 20000;
+        metroTela = 5;
+    }else if (pedido == `2cp`) {
+        precioSillon = 30000;
+        metroTela = 7;
+    }else{
+        precioSillon = 50000;
+        metroTela = 11;
+    }
+}
+
+let grupoTela;
 let precioTela;
-let sillonNeto = suma(precioSillon,multiplicar(precioTela,metroTela));
-let sillonIva = suma(sillonNeto,iva(sillonNeto));
-let zona = prompt(`dime si la zona es capital, interior o sur`);
-let precioFlete;
-let fleteIva = suma(precioFlete, iva(precioFlete));
 
-function sillon() {
-    
-        if(modulacion == `1cp`){
-        metroTela = 2;
-        precioSillon = 20000;
-        }else
-            if(modulacion == `3cp`){
-                metroTela = 5;
-                precioSillon = 35000;
-            }else{
-                    metroTela = 7;
-                    precioSillon = 50000;
-            }
-    /* if (modulacion == `1cp`){
-        metroTela = 2;
-        precioSillon = 20000;
-    }else
-        if(modulacion == `3cp`){
-            metroTela = 5;
-            precioSillon = 35000;
-        }else
-            if (modulacion == `rinconero`) {
-                metroTela = 7;
-                precioSillon = 50000;
-            }else {
-                alert(`el valor ingresado no es correcto`);
-                modulacion = prompt(`vuelva a elegir 1cp, 3cp o rinconero`);
-            } */
-    
-    console.log(`Usted eligio el sillon ` + modulacion);
-    console.log(`los metros de tela necesario son ` + metroTela + ` mts`);
-    console.log('el precio del sillon es ' + precioSillon)  
+function eleccionTela() {
+    for (grupoTela = prompt(`que calidad de tela quiere? 1, 2 o 3`); grupoTela != `1` && grupoTela != `2` && grupoTela != `3`; ) {
+        grupoTela = prompt(`su dato fue incorrecto, que calidad de tela quiere? 1, 2 o 3`); 
+    }
+    if (grupoTela == `1`) {
+        precioTela = 1000;
+    }else if (grupoTela == `2`) {
+        precioTela = 800;
+    }else{
+        precioTela = 500;
+    }
 }
 
+let envio;
+let distancia;
+let precioEnvio;
 
-function tela() {
-    if (grupoTela == 1) {
-        precioTela = 1500;
-    } else
-        if (grupoTela == 2) {
-            precioTela = 1800;
-        }else
-            if (grupoTela == 3) {
-                precioTela = 3000;
-            }else {
-                alert(`el valor ingresado no es correcto`);
-                grupoTela = prompt(`vuelva a elegir 1, 2 o 3`);
-            }
-    
-    console.log(`la calidad de tela elegida es de grupo ` + grupoTela + ` y el valor por metro es ` + precioTela);
-    console.log(`el valor neto de su sillon es de ` + sillonNeto);
-    console.log(`el valor del sillon mas IVA es ` + sillonIva);
+function eleccionEnvio() {
+    for (envio = prompt(`elija retiro o envio`); envio != `retiro` && envio != `envio`; ) {
+        envio = prompt(`su dato fue incorrecto, elija retiro o envio`);
+    }
+    if (envio == `retiro`) {
+        precioEnvio = 0;
+    }else {
+        distancia = parseInt(prompt(`indique la distancia de envio en Km`));
+        precioEnvio = multiplicar(distancia,precioKm);
+    }
 }
 
-function flete() {
-    if(zona == `capital`){
-        precioFlete = 2000;
-    }else
-        if(zona == `sur`){
-            precioFlete = 5000;
-        }else
-            if(zona == `interior`){
-                precioFlete = 4000;
-            }else{
-                alert(`el valor ingresado no es correcto`);
-                modulacion = prompt(`vuelva a elegir capital, interior o sur`);
-            }
-    
-    console.log(`La zona seleccionada es ` + zona);
-    console.log(`El precio del flete para esa zona es ` + precioFlete + ` + IVA`);
-    console.log(`Su costo total de flete es ` + fleteIva);
-}
+ingresoPedido();
+eleccionTela();
+eleccionEnvio();
 
-function pedidoLiving() {
-    sillon();
-    tela();
-    flete();
-}
+let precioTotal = suma(precioSillon,multiplicar(precioTela,metroTela));
 
-pedidoLiving();
+console.log(`Su elección fue ${pedido}, con la calidad ${grupoTela} de tela`);
+console.log(`El precio de su sillon es ${precioTotal} mas IVA`);
+if (precioEnvio == 0) {
+    console.log(`El precio de su factura es ${suma(precioTotal,iva(precioTotal))}`);
+} else {
+    console.log(`El precio de envio es ${precioEnvio}`);
+    console.log(`El precio de su factura es ${suma(suma(precioTotal,iva(precioTotal)),precioEnvio)}`);
+}
