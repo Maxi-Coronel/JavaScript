@@ -1,17 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-body{
-    background: rgb(207, 207, 207);
-}
-nav{
-    display: grid;
-    border: 1px solid black;
-    padding: 1em;
-}
-nav h1{
-    align-self: center;
-    justify-self: center;
-}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+body {
+  background: #d32c2c; }
+
+nav {
+  display: grid;
+  border: 1px solid black;
+  padding: 1em; }
