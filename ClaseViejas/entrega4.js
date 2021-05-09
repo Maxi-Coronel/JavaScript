@@ -1,5 +1,7 @@
 //ejercicio
 
+// Objetos
+
 //const
 const iva = x => x * .21;
 const multiplicar = (a,b) => a * b;
@@ -7,9 +9,15 @@ const suma = (a,b) => a + b;
 const resta = (a,b) => a - b;
 const precioKm = 65;
 
+// let
 let pedido;
 let precioSillon;
 let metroTela;
+let grupoTela;
+let precioTela;
+let envio;
+let distancia;
+let precioEnvio;
 
 function ingresoPedido() {
     for (pedido = prompt(`que modulacion de sillon quiere? 1cp, 2cp o rinconero`); pedido != `1cp` && pedido != `2cp` && pedido != `rinconero`; ) {
@@ -27,9 +35,6 @@ function ingresoPedido() {
     }
 }
 
-let grupoTela;
-let precioTela;
-
 function eleccionTela() {
     for (grupoTela = prompt(`que calidad de tela quiere? 1, 2 o 3`); grupoTela != `1` && grupoTela != `2` && grupoTela != `3`; ) {
         grupoTela = prompt(`su dato fue incorrecto, que calidad de tela quiere? 1, 2 o 3`); 
@@ -42,10 +47,6 @@ function eleccionTela() {
         precioTela = 500;
     }
 }
-
-let envio;
-let distancia;
-let precioEnvio;
 
 function eleccionEnvio() {
     for (envio = prompt(`elija retiro o envio`); envio != `retiro` && envio != `envio`; ) {
