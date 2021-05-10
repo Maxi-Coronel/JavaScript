@@ -22,11 +22,12 @@ const sillon = function (nombre, modulacion, metroTela, alturaAs, alturaRe) {
     this.metroTela = metroTela;
     this.alturaAs = alturaAs;
     this.alturaRe = alturaRe;
+    this.informe = function(){
+        console.log(`el sillon ${nombre} es de ${renata.modulacion}, con una altura de asiento de ${renata.alturaAs} y respaldo ${renata.alturaRe}`);
+    }
 }
 
-sillon.informe = function(){
-    console.log(`el sillon ${nombre} es de ${renata.modulacion}, con una altura de asiento de ${renata.alturaAs} y respaldo ${renata.alturaRe}`);
-}
+
 
 const renata = new sillon(`renata`, `1cp`, 5, 0.45, 0.95);
 
